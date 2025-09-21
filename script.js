@@ -103,12 +103,29 @@ function criarMeta() {
             let labelCheckbox = document.createElement("label");
             labelCheckbox.textContent = valorObjetivo;
             objetivo.appendChild(labelCheckbox)
+            
+            // Excluir objeto
+            let icone = document.createElement("ion-icon")
+            //atribuindo o icone lixeira a tag icone
+            icone.setAttribute("name", "trash-bin-outline");
+
+            //conectando ela ao item da lista
+            objetivo.appendChild(icone)
+
+            icone.addEventListener('click', excluirItem)
+
+             // função para remover item da lista
+            function excluirItem(){
+            objetivo.remove()
+            }
 
             //atualização de progresso
             inputCheckboxObjetivo.addEventListener("change", function() {
             let checkboxes = listaDeObjetivos.querySelectorAll("input[type='checkbox']");
             let marcadas = listaDeObjetivos.querySelectorAll("input[type='checkbox']:checked");
             let porcentagem = (marcadas.length / checkboxes.length) * 100;
+
+
             
             
 

@@ -92,3 +92,14 @@ body{
   transition: width 0.3s ease;
 }
 
+li {
+    display: flex;
+    align-items: center;
+}
+
+li ion-icon:hover{
+    color: red;
+    transition: ease-in-out 0.2s;
+}
+
+
