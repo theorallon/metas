@@ -24,6 +24,21 @@ function criarMeta() {
     tituloMeta.textContent = valorMeta;
     meta.appendChild(tituloMeta);
 
+
+    //criação barra de progresso
+    let barraContainer = document.createElement("div");
+    barraContainer.classList.add("barra-container");
+
+    let barra = document.createElement("div");
+    barra.classList.add("barra");
+
+    barraContainer.appendChild(barra);
+    meta.appendChild(barraContainer);
+    
+
+
+
+
     let icone = document.createElement("ion-icon")
             //atribuindo o icone lixeira a tag icone
             icone.setAttribute("name", "trash-bin-outline");
@@ -88,6 +103,17 @@ function criarMeta() {
             let labelCheckbox = document.createElement("label");
             labelCheckbox.textContent = valorObjetivo;
             objetivo.appendChild(labelCheckbox)
+
+            //atualização de progresso
+            inputCheckboxObjetivo.addEventListener("change", function() {
+            let checkboxes = listaDeObjetivos.querySelectorAll("input[type='checkbox']");
+            let marcadas = listaDeObjetivos.querySelectorAll("input[type='checkbox']:checked");
+            let porcentagem = (marcadas.length / checkboxes.length) * 100;
+            
+            
+
+            barra.style.width = porcentagem + "%";
+            });
         }
 
         inputCriarObjetivo.value = ""

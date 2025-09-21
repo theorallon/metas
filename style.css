@@ -75,3 +75,20 @@ body{
     padding: 12px;
     border-radius: 15px;
 }
+
+.barra-container {
+  width: 100%;
+  height: 15px;
+  background-color: #555; /* cinza de fundo */
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.barra {
+  height: 100%;
+  width: 0%; /* começa vazia */
+  background: linear-gradient(to right, #5c0f66, #ad20e5, #cf44f2, #dc82ff);
+  transition: width 0.3s ease;
+}
+
