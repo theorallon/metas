@@ -2,8 +2,8 @@
 
 function criarMeta() {
     //Cria a variável mensagem e define seu feedback
-    let mensagemConfirmação = "Obejetivo adicionado com sucesso!";
-    let mensagemErro = "Nenhum objetivo para adcionar!";
+    let mensagemConfirmação = "Meta adicionado com sucesso!";
+    let mensagemErro = "Nenhuma meta para adcionar!";
 
     let inputMeta = document.getElementById("inputMeta");
 
@@ -17,7 +17,7 @@ function criarMeta() {
 
     let CaixaDeMetas = document.getElementById("CaixaDeMetas");
 
-    let meta = document.createElement("ul");
+    let meta = document.createElement("section");
     CaixaDeMetas.appendChild(meta);
 
     let tituloMeta = document.createElement("h3");
@@ -40,25 +40,62 @@ function criarMeta() {
                 document.getElementById("mensagem").textContent = mensagemExcluirMeta;
             }
 
+            let setaObjetivos = document.createElement("details");
+            meta.appendChild(setaObjetivos);
+
+            let textoSeta = document.createElement("summary");
+            textoSeta.textContent = "";
+            setaObjetivos.appendChild(textoSeta);
+
+            let listaDeObjetivos = document.createElement("ul")
+            setaObjetivos.appendChild(listaDeObjetivos);
 
             
-
+    
+    let inputCriarObjetivo = document.createElement("input");
+    inputCriarObjetivo.type = "text";   
+    inputCriarObjetivo.placeholder = "Digite um objetivo";
+    inputCriarObjetivo.id = "inputCriarObjetivo";
+    listaDeObjetivos.appendChild(inputCriarObjetivo);
+    
     //cria a variavel do botão que cria objetivos
     let botãoCriarObjetivo = document.createElement("button");
     //define o que tem escrito dentro do botão
     botãoCriarObjetivo.textContent = "Criar objetivo";
     //define que o botão deve ser criado dentro da tag 
-    meta.appendChild(botãoCriarObjetivo);
+    listaDeObjetivos.appendChild(botãoCriarObjetivo);
 
     //adiciona a função do que acontece quando o botão "botão criar objeto faz"
     botãoCriarObjetivo.addEventListener("click", function() {
-        let objetivo = document.createElement("li");
-        objetivo.textContent = "Novo objetivo";
-        meta.appendChild(objetivo);
-    });
-    inputMeta.value = ""
+        
+        let mensagemConfirmaçãoObjetivo = "Obejetivo adicionado com sucesso!";
+        let mensagemErroObjetivo = "Nenhum objetivo para adcionar!";
 
-    
+
+        let valorObjetivo = inputCriarObjetivo.value.trim();
+        
+        if (valorObjetivo === ""){
+            let mensagemObjetivo = document.createElement("p")
+            mensagemObjetivo.id = "mensagemObjetivo"
+            meta.appendChild(mensagemObjetivo)
+            document.getElementById("mensagemObjetivo").textContent = mensagemErroObjetivo;
+        } else {
+            let objetivo = document.createElement("li");
+            listaDeObjetivos.appendChild(objetivo);
+            let inputCheckboxObjetivo = document.createElement("input");
+            inputCheckboxObjetivo.type = "checkbox"
+            objetivo.appendChild(inputCheckboxObjetivo)
+            let labelCheckbox = document.createElement("label");
+            labelCheckbox.textContent = valorObjetivo;
+            objetivo.appendChild(labelCheckbox)
+        }
+
+        inputCriarObjetivo.value = ""
+
+    });
+
+
+    inputMeta.value = ""
 
             }
 
