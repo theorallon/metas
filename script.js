@@ -62,29 +62,34 @@ function criarMeta() {
         textoSeta.textContent = "";
         setaObjetivos.appendChild(textoSeta);
 
-        let listaDeObjetivos = document.createElement("ul")
+        let listaDeObjetivos = document.createElement("ul");
         setaObjetivos.appendChild(listaDeObjetivos);
 
 
+        let caixaCriarObjeto = document.createElement("div");
+        caixaCriarObjeto.id = ("caixaCriarObjeto");
+        listaDeObjetivos.appendChild(caixaCriarObjeto);
 
         let inputCriarObjetivo = document.createElement("input");
         inputCriarObjetivo.type = "text";
         inputCriarObjetivo.placeholder = "Digite um objetivo";
         inputCriarObjetivo.id = "inputCriarObjetivo";
-        listaDeObjetivos.appendChild(inputCriarObjetivo);
+        caixaCriarObjeto.appendChild(inputCriarObjetivo);
 
         //cria a variavel do botão que cria objetivos
         let botãoCriarObjetivo = document.createElement("button");
         //define o que tem escrito dentro do botão
         botãoCriarObjetivo.textContent = "Criar objetivo";
+        botãoCriarObjetivo.id = "botãoCriarObjetivo";
         //define que o botão deve ser criado dentro da tag 
-        listaDeObjetivos.appendChild(botãoCriarObjetivo);
+        caixaCriarObjeto.appendChild(botãoCriarObjetivo);
 
         //adiciona a função do que acontece quando o botão "botão criar objeto faz"
         botãoCriarObjetivo.addEventListener("click", function () {
 
             let mensagemConfirmaçãoObjetivo = "Obejetivo adicionado com sucesso!";
             let mensagemErroObjetivo = "Nenhum objetivo para adcionar!";
+            let mensagemObjetivoExcluido = "Objetivo Excluido!"
 
 
             let valorObjetivo = inputCriarObjetivo.value.trim();
@@ -98,11 +103,18 @@ function criarMeta() {
                 let objetivo = document.createElement("li");
                 listaDeObjetivos.appendChild(objetivo);
                 let inputCheckboxObjetivo = document.createElement("input");
-                inputCheckboxObjetivo.type = "checkbox"
+                inputCheckboxObjetivo.type = "checkbox";
+                inputCheckboxObjetivo.id = "inputCheckboxObjetivo";
                 objetivo.appendChild(inputCheckboxObjetivo)
                 let labelCheckbox = document.createElement("label");
                 labelCheckbox.textContent = valorObjetivo;
                 objetivo.appendChild(labelCheckbox)
+
+
+                let mensagemObjetivo = document.createElement("p")
+                mensagemObjetivo.id = "mensagemObjetivo"
+                meta.appendChild(mensagemObjetivo)
+                document.getElementById("mensagemObjetivo").textContent = mensagemConfirmaçãoObjetivo;
 
                 // Excluir objeto
                 let icone = document.createElement("ion-icon")
@@ -117,6 +129,7 @@ function criarMeta() {
                 // função para remover item da lista
                 function excluirItem() {
                     objetivo.remove()
+                    document.getElementById("mensagemObjetivo").textContent = mensagemObjetivoExcluido;
                 }
 
                 //atualização de progresso

@@ -10,6 +10,8 @@
 :root {
     --text-color: white;
     --background-color: rgb(22, 22, 22);
+    --primary-color: #0799ee;
+    --primary-color-shadow: #0799ee70;
 }
 
 body {
@@ -104,7 +106,7 @@ body {
     align-items: center;
     justify-content: space-between;
     margin: 1rem;
-    width: 450px;
+    width: 490px;
 }
 
 #inputMeta {
@@ -115,7 +117,7 @@ body {
     color: rgb(255, 255, 255);
     outline: none;
     border-radius: 15px;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 #inputMeta:focus{
@@ -138,7 +140,7 @@ body {
     height: 100%;
     width: 0%;
     /* começa vazia */
-    background: linear-gradient(to right, #ca12bb, #b720e5, #4632f5, #4766f1);
+    background: linear-gradient(to right, #1290ca, #0799ee, #2cabff, #75c9fa);
     transition: width 0.3s ease;
 
 }
@@ -151,4 +153,58 @@ li {
 li ion-icon:hover {
     color: red;
     transition: ease-in-out 0.2s;
+}
+
+#caixaCriarObjeto{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#inputCriarObjetivo{
+    padding: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.103);
+    border: 2px solid rgba(255, 255, 255, 0.24);
+    color: rgb(255, 255, 255);
+    outline: none;
+    border-radius: 15px;
+    font-size: 14px;
+}
+
+#inputCriarObjetivo:focus{
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 12px var(--primary-color-shadow);
+}
+
+#botãoCriarObjetivo{
+  background: rgba(255, 255, 255, 0.1); /* cor transparente */
+  border-radius: 20px;                  /* bordas arredondadas */
+  padding: 8px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  /* Efeito vidro */
+  backdrop-filter: blur(15px); 
+  -webkit-backdrop-filter: blur(15px); /* para Safari */
+  border: 1px solid rgba(255, 255, 255, 0.274);
+
+  /* Glow sutil nas bordas */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.144);
+}
+
+#botãoCriarObjetivo:hover{
+    transition: 0.3s ease;
+    transform: scale(102%);
+    border: 1.5px solid var(--primary-color);
+    box-shadow: 0 4px 30px var(--primary-color-shadow);
+}
+
+#inputCheckboxObjetivo{
+    accent-color: var(--primary-color);
+    margin-right: 5px;
 }
