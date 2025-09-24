@@ -12,6 +12,9 @@
     --background-color: rgb(22, 22, 22);
     --primary-color: #0799ee;
     --primary-color-shadow: #0799ee70;
+    --error-color : red;
+    --error-color-shadow: rgb(255, 0, 0);
+    --botão-shadow: rgba(0, 0, 0, 0.144);
 }
 
 body {
@@ -39,19 +42,19 @@ body {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.288);
 }
 
-#Titulo{
+#Titulo {
     font-size: 30px;
-    
+
 }
 
-#Subtitulo{
+#Subtitulo {
     color: rgba(255, 255, 255, 0.829);
 }
 
 #CaixaDeMetas h3 {
     text-align: center;
     padding: 8px;
-    
+
     border-radius: 25px;
     display: flex;
     justify-content: space-between;
@@ -61,31 +64,35 @@ body {
 
 #CaixaDeMetas h3 ion-icon:hover {
     color: red;
-    transition: ease-in-out 0.2s;
+    transition: 0.2s;
 
 }
 
 #botaoCriarMeta {
-     background: rgba(255, 255, 255, 0.1); /* cor transparente */
-  border-radius: 20px;                  /* bordas arredondadas */
-  padding: 15px 20px;
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+    margin-left: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    /* cor transparente */
+    border-radius: 20px;
+    /* bordas arredondadas */
+    padding: 15px 20px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
-  /* Efeito vidro */
-  backdrop-filter: blur(15px); 
-  -webkit-backdrop-filter: blur(15px); /* para Safari */
-  border: 1px solid rgba(255, 255, 255, 0.274);
+    /* Efeito vidro */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    /* para Safari */
+    border: 1px solid rgba(255, 255, 255, 0.274);
 
-  /* Glow sutil nas bordas */
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.144);
+    /* Glow sutil nas bordas */
+    box-shadow: 0 4px 30px var(--botão-shadow);
 }
 
-#botaoCriarMeta:hover{
+#botaoCriarMeta:hover {
     transition: 0.3s ease;
     transform: scale(102%);
     border: 1.5px solid rgba(255, 255, 255, 0.685);
@@ -97,16 +104,17 @@ body {
     padding: 2rem;
     margin: 1rem;
     background-color: rgba(255, 255, 255, 0.082);
-    border-radius: 18PX  ;
+    border-radius: 18PX;
     border: 1.5px solid rgba(255, 255, 255, 0.185);
 }
 
 .CriarMetas {
+    
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     margin: 1rem;
-    width: 490px;
+    width: 40%;
 }
 
 #inputMeta {
@@ -120,9 +128,9 @@ body {
     font-size: 16px;
 }
 
-#inputMeta:focus{
+#inputMeta:focus {
     border: 1px solid #f8f8f8;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.322);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.322);
 }
 
 .barra-container {
@@ -152,16 +160,16 @@ li {
 
 li ion-icon:hover {
     color: red;
-    transition: ease-in-out 0.2s;
+    transition: 0.2s;
 }
 
-#caixaCriarObjeto{
+#caixaCriarObjeto {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-#inputCriarObjetivo{
+#inputCriarObjetivo {
     padding: 8px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.103);
@@ -172,39 +180,51 @@ li ion-icon:hover {
     font-size: 14px;
 }
 
-#inputCriarObjetivo:focus{
+#inputCriarObjetivo:focus {
     border: 2px solid var(--primary-color);
     box-shadow: 0 0 12px var(--primary-color-shadow);
+    background: rgba(47, 130, 255, 0.1);
+
 }
 
-#botãoCriarObjetivo{
-  background: rgba(255, 255, 255, 0.1); /* cor transparente */
-  border-radius: 20px;                  /* bordas arredondadas */
-  padding: 8px;
-  color: white;
-  font-size: 14px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+#botãoCriarObjetivo {
+    background: rgba(255, 255, 255, 0.1);
+    /* cor transparente */
+    border-radius: 20px;
+    /* bordas arredondadas */
+    padding: 8px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
-  /* Efeito vidro */
-  backdrop-filter: blur(15px); 
-  -webkit-backdrop-filter: blur(15px); /* para Safari */
-  border: 1px solid rgba(255, 255, 255, 0.274);
+    /* Efeito vidro */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    /* para Safari */
+    border: 1px solid rgba(255, 255, 255, 0.274);
 
-  /* Glow sutil nas bordas */
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.144);
+    /* Glow sutil nas bordas */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.144);
 }
 
-#botãoCriarObjetivo:hover{
+#botãoCriarObjetivo:hover {
     transition: 0.3s ease;
     transform: scale(102%);
     border: 1.5px solid var(--primary-color);
     box-shadow: 0 4px 30px var(--primary-color-shadow);
+    background: rgba(47, 130, 255, 0.1);
 }
 
-#inputCheckboxObjetivo{
+#inputCheckboxObjetivo {
     accent-color: var(--primary-color);
     margin-right: 5px;
+}
+
+.placeholder-vermelho::placeholder{
+    color: rgba(255, 0, 0, 0.658);
+    
+    
 }

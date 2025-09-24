@@ -1,5 +1,6 @@
 
 
+
 function criarMeta() {
     //Cria a variável mensagem e define seu feedback
     let mensagemConfirmação = "Meta adicionado com sucesso!";
@@ -9,10 +10,21 @@ function criarMeta() {
 
     let valorMeta = inputMeta.value.trim();
 
+    
+
     if (valorMeta === "") {
         document.getElementById("mensagem").textContent = mensagemErro;
+        inputMeta.style.border = "2px solid red"; // destaca a borda
+        inputMeta.style.boxShadow = "0 0 12px var(--error-color-shadow)";
+        inputMeta.classList.add('placeholder-vermelho');
+        return; // para aqui sem criar a meta
+
     } else {
-        document.getElementById("mensagem").textContent = mensagemConfirmação;
+        inputMeta.style.border = "2px solid rgba(255, 255, 255, 0.24)"; // volta ao normal
+        inputMeta.style.boxShadow = "0 4px 30px var(--botão-shadow)";
+        inputMeta.classList.remove('placeholder-vermelho');
+        document.getElementById("mensagem").text
+        Content = mensagemConfirmação;
         let body = document.getElementById("body");
 
         let CaixaDeMetas = document.getElementById("CaixaDeMetas");
@@ -128,8 +140,7 @@ function criarMeta() {
 
                 // função para remover item da lista
                 function excluirItem() {
-                    objetivo.remove()
-                    document.getElementById("mensagemObjetivo").textContent = mensagemObjetivoExcluido;
+                    nt = mensagemObjetivoExcluido;
                 }
 
                 //atualização de progresso
